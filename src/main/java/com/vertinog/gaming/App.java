@@ -3,12 +3,25 @@
  */
 package com.vertinog.gaming;
 
+import com.vertinog.gaming.render_engine.DisplayManager;
+
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
+    public static void main(String[] args) {
+        App app = new App();
+
+        app.startGame();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    private void startGame() {
+        init();
+
+        DisplayManager.updateDisplay();
+
+        DisplayManager.destroyDisplay();
+    }
+
+    private void init() {
+        DisplayManager.createDisplay();
+        InputManager.init();
     }
 }
